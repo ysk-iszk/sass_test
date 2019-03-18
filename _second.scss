@@ -1,0 +1,57 @@
+//second.scss
+$red:#f00 !global;
+$blue: #00f;
+
+@media screen and (min-width: #{$break-point-pc}) {
+  .box3 {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .box3-inner {
+    float:left;
+    width:33%;
+    &:not(first-child){
+      width:calc(33% - #{$padding});
+      margin-left:#{$padding};
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $blue;
+  &:hover {
+    text-decoration: underline;
+    color:$red;
+  }
+  &:before {
+    content: "\f105";
+    font-family: FontAwesome;
+  }
+}
+
+.notice {
+  color: $red;
+}
+
+h1 {
+  border: {
+    left: 10px solid $red;
+    bottom: 1px solid $red;
+  }
+  padding: 5px 20px
+}
+
+h2 {
+  border: {
+    left: 10px solid $blue;
+    bottom: 1px solid $blue;
+  }
+  padding: 5px 20px
+}
+
+main img {
+  width :100%;  
+}

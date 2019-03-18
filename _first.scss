@@ -1,0 +1,119 @@
+//first.scss
+$body-width: 1080px;
+$break-point: 720px;
+$break-point-pc: $break-point + 1 !global;
+$font-size: 150%;
+$line-height: 1.5;
+$padding: 20px !global;
+$body-margin-bottom: 50px;
+$header-height: 100px;
+$footer-height: 150px;
+
+* {
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-size:$font-size;
+  line-height:$line-height;
+}
+
+header {
+  width:100%;
+  height:$header-height;
+  background-color:lightgrey;
+  overflow: hidden;
+  ul {
+    @media screen and (min-width: #{$break-point-pc}) {
+      width:$body-width;
+      margin-left:auto;
+      margin-right:auto;
+      content: "";
+      display: block;
+      clear: both;
+    }
+    @media screen and (max-width: #{$break-point}) {
+      width:100%;
+    }
+    li {
+      @media screen and (min-width: #{$break-point-pc}) {
+        float:left;
+        width:33%;
+        list-style-type: none;
+        font-weight: 700;
+        text-align: center;
+        line-height:$header-height;
+        vertical-align: middle;
+      }
+      @media screen and (max-width: #{$break-point}) {
+        list-style-type: none;
+        font-weight: 700;
+        padding:0 $padding 0;
+        font-size: calc(#{$font-size} * 0.6);
+      }
+    }
+  }
+}
+
+.content-wrapper {
+  width:$body-width;
+  margin-left:auto;
+  margin-right:auto;
+  min-height: calc(100vh - #{$footer-height} - #{$body-margin-bottom});
+  content: "";
+  display: block;
+  clear: both;
+  @media screen and (max-width: #{$break-point}) {
+    width:auto;
+    margin-left:$padding;
+    margin-right:$padding;
+  }
+}
+
+main {
+  @media screen and (min-width: #{$break-point-pc}) {
+    .index & {
+      clear:both;
+      width: calc(100% - #{$padding} * 2);
+      padding:0 $padding;
+    }
+    .second & {
+      float: left;
+      width: calc(70% - #{$padding} * 2);
+      padding:0 $padding;
+    }
+  }
+  @media screen and (max-width: #{$break-point}) {
+    clear:both;
+    width:100%;
+  }
+}
+
+aside {
+  float: left;
+  @media screen and (min-width: #{$break-point-pc}) {
+  width: calc(30% - #{$padding} * 2);
+  padding: 0 $padding 0;
+  }
+  @media screen and (max-width: #{$break-point}) {
+    width: 100%;
+  }
+  ul li {
+    list-style-type: none;
+  }
+}
+
+footer {
+  clear: both;
+  width: 100%;
+  height: $footer-height;
+  background-color: gray;
+  color: #fff;
+  article {
+    width:$body-width;
+    margin-left:auto;
+    margin-right:auto;
+    padding: $padding $padding $padding;
+  }
+}
